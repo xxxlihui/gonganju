@@ -51,13 +51,13 @@ func RegisterModels(){
 }
 func AddAdmin(){
 	adminRoleId:="67C96D63288C4842A75B9EBC1E6243D7"
-	adminPermitId:=1
 	/*添加默认管理员*/
 	police:=new(Police)
 	police.PoliceAcc="admin"
 	police.PoliceIcon=random.NewId()
 	police.PolicePwd="123"
 	police.PoliceName="管理员"
+	police.PoliceRole="amdin"
 	police.Insert()
 	/*添加管理员图标*/
 	photo:=new(Photos)
@@ -82,7 +82,6 @@ func AddAdmin(){
 	}
 	defer fileIcon.Close()
 	io.Copy(file,fileIcon)
-
 }
 func init(){
 	Init()

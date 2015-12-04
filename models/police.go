@@ -16,6 +16,8 @@ type Police struct {
 	PoliceDeptId string `orm:"size(32)"`
 	PoliceCode string `orm:"size(32)"` //警号
 	PoliceAddTime time.Time `orm:"auto_now_add"`
+	/*简单化权限控制*/
+	PoliceRole string `orm:"size(32)"`
 }
 func (this *Police)Read(field ...string) error {
 	return o.Read(this, field...)
@@ -23,6 +25,9 @@ func (this *Police)Read(field ...string) error {
 func (this *Police)Insert()(int64,error){
 	if this.PoliceDeptId==""{
 		this.PoliceId=random.NewId()
+	}
+	if this.PoliceRole==""{
+		this.PoliceRole="user"//普通用户
 	}
 	return o.Insert(this)
 }
