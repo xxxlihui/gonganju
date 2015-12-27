@@ -18,7 +18,4 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="Go 1.5" project-jdk-type="Go SDK" />
-  <component name="ScalaSbtSettings">
-    <option name="vmParameters" value="-Dsbt.override.build.repos=true -Dsbt.repository.config=F:\sbt\repositories -Dfile.encoding=utf-8" />
-  </component>
 </project>

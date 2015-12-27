@@ -18,12 +18,14 @@ type Police struct {
 	PoliceAddTime time.Time `orm:"auto_now_add"`
 	/*简单化权限控制*/
 	PoliceRole string `orm:"size(32)"`
+	HideHeader bool
+	ThemeName string `orm:"size(20"`
 }
 func (this *Police)Read(field ...string) error {
 	return o.Read(this, field...)
 }
 func (this *Police)Insert()(int64,error){
-	if this.PoliceDeptId==""{
+	if this.PoliceId==""{
 		this.PoliceId=random.NewId()
 	}
 	if this.PoliceRole==""{

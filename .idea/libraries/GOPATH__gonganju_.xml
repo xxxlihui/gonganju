@@ -1,8 +1,9 @@
 <component name="libraryTable">
   <library name="GOPATH &lt;gonganju&gt;">
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/../gz.com.rar" />
+      <root url="file://$PROJECT_DIR$/../gz.com" />
       <root url="file://$PROJECT_DIR$/../.idea" />
-      <root url="file://$PROJECT_DIR$/../nong" />
       <root url="file://D:/gopath/src/github.com" />
     </CLASSES>
     <JAVADOC />
@@ -13,6 +14,7 @@
       <root url="file://D:/gopath/src/github.com/pborman/uuid/.git" />
       <root url="file://$PROJECT_DIR$/../.idea" />
       <root url="file://D:/gopath/src/github.com/.idea" />
+      <root url="file://$PROJECT_DIR$/../gz.com/.idea" />
       <root url="file://D:/gopath/src/github.com/astaxie/beego/.git" />
       <root url="file://D:/gopath/src/github.com/beego/bee/testdata" />
       <root url="file://D:/gopath/src/github.com/smartystreets/goconvey/.git" />
@@ -20,6 +22,7 @@
       <root url="file://D:/gopath/src/github.com/astaxie/beego/utils/testdata" />
       <root url="file://$PROJECT_DIR$" />
       <root url="file://D:/gopath/src/github.com/lib/pq/.git" />
+      <root url="file://$PROJECT_DIR$/../nong" />
       <root url="file://D:/gopath/src/github.com/jtolds/gls/.git" />
       <root url="file://D:/gopath/src/github.com/smartystreets/assertions/.git" />
     </excluded>

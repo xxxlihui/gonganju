@@ -15,10 +15,11 @@ func init() {
 	beego.SetStaticPath("/fonts", "static/fonts")
 	beego.SetStaticPath("/prettify", "static/prettify")
 	userNs := beego.NewNamespace(
-		"/user",
+		"/UserNS",
 		beego.NSAutoRouter(&controllers.Cases{}),
 		beego.NSAutoRouter(&controllers.CasesAction{}),
 		beego.NSAutoRouter(&controllers.Police{}),
+		beego.NSAutoRouter(&controllers.PoliceInfo{}),
 	)
 	beego.AddNamespace(userNs)
 }

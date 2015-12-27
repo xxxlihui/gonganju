@@ -1,68 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shamcey - Metro Style Admin Template - shared on themelock.com</title>
-<link rel="stylesheet" href="css/style.default.css" type="text/css" />
-<link rel="stylesheet" href="css/style.shinyblue.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Shamcey - Metro Style Admin Template - shared on themelock.com</title>
+    <link rel="stylesheet" href="/css/style.default.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/style.shinyblue.css" type="text/css"/>
 
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
-<script type="text/javascript" src="js/modernizr.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript">
-    jQuery(document).ready(function(){
-        jQuery('#login').submit(function(){
-            var u = jQuery('#username').val();
-            var p = jQuery('#password').val();
-            u= jQuery.trim(u);p= $.trim(p);
-            if(u == '' && p == '') {
-                jQuery('.login-alert').fadeIn();
+    <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-migrate-1.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.9.2.min.js"></script>
+    <script type="text/javascript" src="/js/modernizr.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#loginBtn').click(function () {
+                var u = jQuery('#username').val();
+                var p = jQuery('#password').val();
+                u = jQuery.trim(u);
+                p = jQuery.trim(p);
+                if (u == '' && p == '') {
+                    jQuery('.login-alert').fadeIn();
+                    return false;
+                }
+                jQuery.post("/login", {acc: u, pwd: p}, "json")
+                        .then(function (data) {
+                            if (data.ResultID==0) {
+                                location.href = "/UserNS/PoliceInfo/Index"
+                                return
+                            } else {
+                                jQuery(".login-alert .alert-error").text("账号密码错误");
+                                jQuery(".login-alert").fadeIn();
+                            }
+                        })
+                        .fail(function (data) {
+                            jQuery(".login-alert .alert-error").text("请求发生错误");
+                            jQuery(".login-alert").fadeIn();
+                        })
                 return false;
-            }
-            jQuery.post("/login",{acc:u,pwd:p},"json")
-                    .then(function(data){
-                        if(data.Result){
-                            location.href="/user"
-                            return
-                        }else{
-                            jQuery(".login-alert .alert-error").text("账号密码错误").fadeIn();
-                        }
-                    })
-                    .fail(function(data){
-                        jQuery(".login-alert .alert-error").text("请求发生错误").fadeIn();
-                    })
+            });
         });
-    });
-</script>
+    </script>
 </head>
 
 <body class="loginpage">
 
 <div class="loginpanel">
     <div class="loginpanelinner">
-        <div class="logo animate0 bounceIn"><img src="images/logo.png" alt="" /></div>
+        <div class="logo animate0 bounceIn"><img src="/images/logo.png" alt=""/></div>
         <form id="login" action="dashboard.html" method="post">
             <div class="inputwrapper login-alert">
                 <div class="alert alert-error">请输入你的账号密码</div>
             </div>
             <div class="inputwrapper animate1 bounceIn">
-                <input type="text" name="username" id="username" placeholder="请输入你的账户" />
+                <input type="text" name="username" id="username" placeholder="请输入你的账户"/>
             </div>
             <div class="inputwrapper animate2 bounceIn">
-                <input type="password" name="password" id="password" placeholder="请输入你的密码" />
+                <input type="password" name="password" id="password" placeholder="请输入你的密码"/>
             </div>
             <div class="inputwrapper animate3 bounceIn">
-                <button name="submit">登  陆</button>
+                <button name="submit" id="loginBtn">登 陆</button>
             </div>
             <div class="inputwrapper animate4 bounceIn">
-                <label><input type="checkbox" class="remember" name="signin" />记住我</label>
+                <label><input type="checkbox" class="remember" name="signin"/>记住我</label>
             </div>
-            
+
         </form>
     </div><!--loginpanelinner-->
 </div><!--loginpanel-->

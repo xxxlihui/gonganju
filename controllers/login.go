@@ -14,5 +14,5 @@ func (c *Login)Post(){
 		c.SetSession("policeId",police.PoliceId)
 	}
 	c.Data["json"]=rsp
-	c.ServeJsonp()
+	c.ServeJson()
 }
